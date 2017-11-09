@@ -2,6 +2,16 @@
 {
     public class LightLeatherVest
     {
-        
+        private int armorPoints;
+
+        public int ArmorPoints
+        {
+            get { return armorPoints; }
+        }
+
+        public LightLeatherVest()
+        {
+            this.armorPoints = 10;
+        }
     }
 }

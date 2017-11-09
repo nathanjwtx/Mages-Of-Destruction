@@ -10,7 +10,7 @@ namespace Mages_Of_Destiny.Characters.Melee
         private int healthPoints;
         private int level;
         private string name;
-        private LightLeatherVest bodyArmor;
+        private LightLeatherVest bodyArmor = new LightLeatherVest();
         private Sword weapon = new Sword();
 
         public int AbilityPoints { get; set; }
@@ -23,6 +23,12 @@ namespace Mages_Of_Destiny.Characters.Melee
         {
             get { return weapon; }
             set { weapon = value;}
+        }
+
+        public LightLeatherVest BodyArmor
+        {
+            get { return bodyArmor; }
+            set { bodyArmor = value; }
         }
 
         public int Raze()
