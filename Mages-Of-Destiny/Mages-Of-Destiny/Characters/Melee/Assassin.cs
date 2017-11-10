@@ -1,4 +1,5 @@
-﻿using Mages_Of_Destiny.Equipment.Armors;
+﻿using System;
+using Mages_Of_Destiny.Equipment.Armors;
 using Mages_Of_Destiny.Equipment.Weapons;
 
 namespace Mages_Of_Destiny.Characters.Melee
@@ -13,9 +14,53 @@ namespace Mages_Of_Destiny.Characters.Melee
         private LightLeatherVest bodyArmor = new LightLeatherVest();
         private Sword weapon = new Sword();
 
-        public int AbilityPoints { get => abilityPoints; }
-        public string Faction { get; set; }
-        public int HealthPoints { get => healthPoints; }
+        public int AbilityPoints
+        {   get => abilityPoints;
+            set
+            {
+                if (value < 3)
+                {
+                    throw new ArgumentOutOfRangeException(string.Empty, "Ability points set too low");
+                }
+                else
+                {
+                    this.abilityPoints = value;
+                }
+            }
+        }
+
+        public string Faction
+        {
+            get => faction;
+            set
+            {
+                if (value == "Melee")
+                {
+                    this.faction = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException(string.Empty, "Wrong faction for this class!");
+                }
+            }
+        }
+
+        public int HealthPoints
+        {
+            get => healthPoints;
+            set
+            {
+                if (value < 10)
+                {
+                    throw new ArgumentOutOfRangeException(string.Empty, "Health points set too low");
+                }
+                else
+                {
+                    this.healthPoints = value;
+                }
+            }
+        }
+
         public int Level { get; set; }
         public string Name { get; set; }
 
@@ -49,9 +94,11 @@ namespace Mages_Of_Destiny.Characters.Melee
             return healthBoost;
         }
 
-        public Assassin()
+        public Assassin(string faction, int ability, int health)
         {
-            this.healthPoints = 20;
+            this.HealthPoints = health;
+            this.AbilityPoints = ability;
+            this.Faction = faction;
         }
     }
 }

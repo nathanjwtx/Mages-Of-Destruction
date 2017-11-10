@@ -1,4 +1,5 @@
-﻿using Mages_Of_Destiny.Equipment.Armors;
+﻿using System;
+using Mages_Of_Destiny.Equipment.Armors;
 using Mages_Of_Destiny.Equipment.Weapons;
 
 namespace Mages_Of_Destiny.Characters.Melee
@@ -12,6 +13,22 @@ namespace Mages_Of_Destiny.Characters.Melee
         private string name;
         private Hammer hammer = new Hammer();
         private Chainlink chainlink = new Chainlink();
+
+        public string Faction
+        {
+            get => faction;
+            set
+            {
+                if (value == "Melee")
+                {
+                    this.faction = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException(string.Empty, "Wrong faction for this class!");
+                }
+            }
+        }
 
         public Hammer ThorsHammer
         {
@@ -40,10 +57,11 @@ namespace Mages_Of_Destiny.Characters.Melee
             return healthBoost;
         }
 
-        public Warrior()
+        public Warrior(string faction)
         {
             this.abilityPoints = 10;
             this.healthPoints = 20;
+            this.Faction = faction;
         }
     }
 }
