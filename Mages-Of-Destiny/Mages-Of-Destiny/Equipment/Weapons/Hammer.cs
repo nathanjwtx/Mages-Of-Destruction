@@ -3,22 +3,22 @@
     public class Hammer
     {
         private int damage;
+        private int stun;
 
         public int Attack
         {
             get { return damage; }
-            set { damage = value; }
         }
 
-        public int Stun()
+        public int Stun
         {
-            damage = 18;
-            return this.damage;
+            get { return stun; }
         }
 
         public Hammer()
         {
             this.damage = 12;
+            this.stun = 17;
         }
     }
 }

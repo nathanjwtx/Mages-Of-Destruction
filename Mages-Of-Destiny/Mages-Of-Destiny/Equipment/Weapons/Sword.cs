@@ -10,13 +10,11 @@ namespace Mages_Of_Destiny.Equipment.Weapons
         public int Damage
         {
             get { return damage; }
-//            set { this.damage = value; }
         }
 
         public int Bloodthirst
         {
             get { return BloodThirst; }
-//            set { this.BloodThirst = value; }
         }
 
         public Sword()

@@ -11,7 +11,7 @@
 
         public LightLeatherVest()
         {
-            this.armorPoints = 10;
+            this.armorPoints = 18;
         }
     }
 }

@@ -3,22 +3,22 @@
     public class Staff
     {
         private int damage;
+        private int empower;
 
         public int Damage
         {
             get { return damage; }
-            set { damage = value; }
         }
 
-        public int UseEmpower()
+        public int Empower
         {
-            this.damage = 15;
-            return damage;
+            get { return empower; }
         }
 
         public Staff()
         {
-            damage = 10;
+            this.damage = 10;
+            this.empower = 18;
         }
     }
 }

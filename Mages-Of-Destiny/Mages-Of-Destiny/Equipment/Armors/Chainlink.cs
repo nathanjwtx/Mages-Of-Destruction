@@ -2,6 +2,17 @@
 {
     public class Chainlink
     {
-        
+        private int armorPoints;
+
+        public int ArmorPoints
+        {
+            get { return armorPoints; }
+        }
+
+        public Chainlink()
+        {
+            this.armorPoints = 20;
+        }
+
     }
 }

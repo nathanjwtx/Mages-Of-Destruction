@@ -9,8 +9,10 @@ namespace Mages_Of_Destiny
     {
         static void Main(string[] args)
         {
-            var nathan = new Warrior();
-            Console.WriteLine(nathan.ThorsHammer.Attack);
+            var nathan = new Knight();
+            Console.WriteLine(nathan.AbilityPoints);
+            Console.WriteLine(nathan.DeathBringer.Damage);
+            
         }
     }
 }
