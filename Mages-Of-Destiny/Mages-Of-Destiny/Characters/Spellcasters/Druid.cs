@@ -6,21 +6,33 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
 {
     public class Druid
     {
+        private const string DEFAULT_NAME = "Adam";
+        private const int DEFAULT_LEVEL = 1;
+        private const int DEFAULT_HEALTHPOINTS = 12;
         private int abilityPoints;
         private string faction;
         private int healthPoints;
         private int level;
         private string name;
-        private Staff staff = new Staff();
-        private LightLeatherVest vest = new LightLeatherVest();
+        private Staff staff;
+        private LightLeatherVest vest;
 
-        public Staff RodOfLife => staff;
-        public LightLeatherVest BarkSkin => vest;
+        public Staff RodOfLife
+        {
+            get => staff;
+            private set => staff = value;
+        }
+
+        public LightLeatherVest BarkSkinLeatherVest
+        {
+            get => vest;
+            private set => vest = value;
+        }
         
         public string Faction
         {
             get => faction;
-            set
+            private set
             {
                 if (value == "Mage")
                 {
@@ -36,7 +48,7 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
         public int HealthPoints
         {
             get => healthPoints;
-            set
+            private set
             {
                 if (value > 4)
                 {
@@ -52,7 +64,7 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
         public int AbilityPoints
         {
             get => abilityPoints;
-            set
+            private set
             {
                 if (value > 5)
                 {
@@ -63,6 +75,18 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
                     throw new ArgumentOutOfRangeException(String.Empty, "Ability too low");
                 }
             }
+        }
+
+        public int Level
+        {
+            get => level;
+            private set => level = value;
+        }
+
+        public string Name
+        {
+            get => name;
+            private set => name = value;
         }
 
         public int Moonfire()
@@ -83,11 +107,19 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
             return healthBoost;
         }
 
-        public Druid(string faction, int ability, int health)
+        public Druid()
+            : this(DEFAULT_NAME, DEFAULT_LEVEL, DEFAULT_HEALTHPOINTS)
+        {}
+        
+        public Druid(string name, int level, int health = DEFAULT_HEALTHPOINTS)
         {
-            this.AbilityPoints = ability;
-            this.HealthPoints = health;
-            this.Faction = faction;
+            Name = name;
+            Level = level;
+            HealthPoints = health;
+            AbilityPoints = 10;
+            Faction = "Mage";
+            RodOfLife = new Staff();
+            BarkSkinLeatherVest = new LightLeatherVest();
         }
     }
 }

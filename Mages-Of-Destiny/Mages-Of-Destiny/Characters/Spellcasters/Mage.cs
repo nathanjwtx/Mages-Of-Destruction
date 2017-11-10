@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Dynamic;
 using Mages_Of_Destiny.Equipment.Armors;
 using Mages_Of_Destiny.Equipment.Weapons;
 
@@ -6,16 +7,28 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
 {
     public class Mage
     {
+        private const string DEFAULT_NAME = "Tim";
+        private const int DEFAULT_LEVEL = 1;
+        private const int DEFAULT_HEALTHPOINTS = 12;
         private int abilityPoints;
         private string faction;
         private int healthPoints;
         private int level;
         private string name;
-        private Staff staff = new Staff();
-        private ClothRobe robe = new ClothRobe();
+        private Staff staff;
+        private ClothRobe robe;
 
-        public Staff RodOfElectricity => staff;
-        public ClothRobe RobeOfIllumination => robe;
+        public Staff RodOfElectricity
+        {
+            get => staff;
+            private set => staff = value;
+        }
+
+        public ClothRobe RobeOfIllumination
+        {
+            get => robe;
+            private set => robe = value;
+        }
         
         public string Faction
         {
@@ -65,6 +78,18 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
             }
         }
 
+        public int Level
+        {
+            get => level;
+            private set => level = value;
+        }
+
+        public string Name
+        {
+            get => name;
+            private set => name = value;
+        }
+
         public int ArcaneWrath()
         {
             var damage = 13;
@@ -83,11 +108,19 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
             return healthBoost;
         }
 
-        public Mage(string faction, int ability, int health)
+        public Mage()
+            : this(DEFAULT_NAME, DEFAULT_LEVEL, DEFAULT_HEALTHPOINTS)
+        {}
+        
+        public Mage(string name, int level, int health = DEFAULT_HEALTHPOINTS)
         {
-            this.AbilityPoints = ability;
-            this.HealthPoints = health;
-            Faction = faction;
+            Name = name;
+            Level = level;
+            HealthPoints = health;
+            AbilityPoints = 9;
+            Faction = "Mage";
+            RodOfElectricity = new Staff();
+            RobeOfIllumination = new ClothRobe();
         }
     }
 }

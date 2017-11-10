@@ -6,18 +6,21 @@ namespace Mages_Of_Destiny.Characters.Melee
 {
     public class Warrior
     {
+        private const string DEFAULT_NAME = "Will";
+        private const int DEFAULT_LEVEL = 1;
+        private const int DEFAULT_HEALTHPOINTS = 12;
         private int abilityPoints;
         private string faction;
         private int healthPoints;
         private int level;
         private string name;
-        private Hammer hammer = new Hammer();
-        private Chainlink chainlink = new Chainlink();
+        private Hammer hammer;
+        private Chainlink chainlink;
 
         public string Faction
         {
             get => faction;
-            set
+            private set
             {
                 if (value == "Melee")
                 {
@@ -33,42 +36,56 @@ namespace Mages_Of_Destiny.Characters.Melee
         public int HealthPoints
         {
             get => healthPoints;
-            set
+            private set
             {
-                if (value < 10)
+                if (value > 10)
                 {
-                    throw new ArgumentOutOfRangeException(string.Empty, "Health points set too low");
+                    this.healthPoints = value;
                 }
                 else
                 {
-                    this.healthPoints = value;
+                    throw new ArgumentOutOfRangeException(string.Empty, "Health points set too low");
                 }
             }
         }
         
         public int AbilityPoints
         {   get => abilityPoints;
-            set
+            private set
             {
-                if (value < 5)
+                if (value > 5)
                 {
-                    throw new ArgumentOutOfRangeException(string.Empty, "Ability points set too low");
+                    this.abilityPoints = value;
                 }
                 else
                 {
-                    this.abilityPoints = value;
+                    throw new ArgumentOutOfRangeException(string.Empty, "Ability points set too low");
                 }
             }
         }
 
+        public string Name
+        {
+            get => name;
+            private set => name = value;
+        }
+
+        public int Level
+        {
+            get => level;
+            private set => level = value;
+        }
+
         public Hammer ThorsHammer
         {
-            get { return hammer; }
+            get => hammer;
+            private set => hammer = value;
         }
 
         public Chainlink MythrilChain
         {
-            get { return chainlink; }
+            get => chainlink;
+            private set => chainlink = value;
         }
 
         public int Strike()
@@ -88,11 +105,19 @@ namespace Mages_Of_Destiny.Characters.Melee
             return healthBoost;
         }
 
-        public Warrior(string faction, int ability, int health)
+        public Warrior()
+            : this(DEFAULT_NAME, DEFAULT_LEVEL, DEFAULT_HEALTHPOINTS)
+        {}
+        
+        public Warrior(string name, int level, int health = DEFAULT_HEALTHPOINTS)
         {
-            this.AbilityPoints = ability;
-            this.HealthPoints = health;
-            this.Faction = faction;
+            Name = name;
+            Level = level;
+            HealthPoints = health;
+            Faction = "Melee";
+            AbilityPoints = 7;
+            ThorsHammer = new Hammer();
+            MythrilChain = new Chainlink();
         }
     }
 }
