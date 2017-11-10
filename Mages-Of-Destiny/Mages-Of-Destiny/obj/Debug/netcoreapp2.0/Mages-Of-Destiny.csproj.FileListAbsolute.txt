@@ -19,4 +19,3 @@ C:\Users\watenatj\OneDrive\Work - C Sharp\02 Udemy - TodV OOP with C#\Mages-Of-D
 C:\Users\watenatj\OneDrive\Work - C Sharp\02 Udemy - TodV OOP with C#\Mages-Of-Destiny\Mages-Of-Destiny\Mages-Of-Destiny\bin\Debug\netcoreapp2.0\Mages-Of-Destiny.runtimeconfig.dev.json
 C:\Users\watenatj\OneDrive\Work - C Sharp\02 Udemy - TodV OOP with C#\Mages-Of-Destiny\Mages-Of-Destiny\Mages-Of-Destiny\bin\Debug\netcoreapp2.0\Mages-Of-Destiny.dll
 C:\Users\watenatj\OneDrive\Work - C Sharp\02 Udemy - TodV OOP with C#\Mages-Of-Destiny\Mages-Of-Destiny\Mages-Of-Destiny\bin\Debug\netcoreapp2.0\Mages-Of-Destiny.pdb
-C:\Users\Nathan - User\OneDrive\Work - C Sharp\02 Udemy - TodV OOP with C#\Mages-Of-Destiny\Mages-Of-Destiny\Mages-Of-Destiny\obj\Debug\netcoreapp2.0\Mages-Of-Destiny.csprojResolveAssemblyReference.cache

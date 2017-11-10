@@ -1,4 +1,5 @@
 ﻿using System;
+using Mages_Of_Destiny.Enums;
 using Mages_Of_Destiny.Equipment.Armors;
 using Mages_Of_Destiny.Equipment.Weapons;
 
@@ -9,28 +10,19 @@ namespace Mages_Of_Destiny.Characters.Melee
         private const string DEFAULT_NAME = "Will";
         private const int DEFAULT_LEVEL = 1;
         private const int DEFAULT_HEALTHPOINTS = 12;
+        private const int DEFAULT_ABILITYPOINTS = 7;
         private int abilityPoints;
-        private string faction;
+        private Faction faction;
         private int healthPoints;
         private int level;
         private string name;
         private Hammer hammer;
         private Chainlink chainlink;
 
-        public string Faction
+        public Faction Faction
         {
             get => faction;
-            private set
-            {
-                if (value == "Melee")
-                {
-                    this.faction = value;
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException(string.Empty, "Wrong faction for this class!");
-                }
-            }
+            private set => faction = value;
         }
         
         public int HealthPoints
@@ -106,16 +98,20 @@ namespace Mages_Of_Destiny.Characters.Melee
         }
 
         public Warrior()
-            : this(DEFAULT_NAME, DEFAULT_LEVEL, DEFAULT_HEALTHPOINTS)
+            : this(DEFAULT_NAME, DEFAULT_LEVEL, DEFAULT_HEALTHPOINTS, DEFAULT_ABILITYPOINTS)
         {}
         
-        public Warrior(string name, int level, int health = DEFAULT_HEALTHPOINTS)
+        public Warrior(string name, int level)
+            : this(name, level, DEFAULT_HEALTHPOINTS, DEFAULT_ABILITYPOINTS)
+        {}
+        
+        public Warrior(string name, int level, int health, int ability = DEFAULT_ABILITYPOINTS)
         {
             Name = name;
             Level = level;
             HealthPoints = health;
-            Faction = "Melee";
-            AbilityPoints = 7;
+            Faction = Faction.Melee;
+            AbilityPoints = ability;
             ThorsHammer = new Hammer();
             MythrilChain = new Chainlink();
         }

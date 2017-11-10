@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using Mages_Of_Destiny.Enums;
 using Mages_Of_Destiny.Equipment.Armors;
 using Mages_Of_Destiny.Equipment.Weapons;
 
@@ -10,8 +11,9 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
         private const string DEFAULT_NAME = "Bill";
         private const int DEFAULT_LEVEL = 1;
         private const int DEFAULT_HEALTHPOINTS = 12;
+        private const int DEFAULT_ABILITYPOINTS = 9;
         private int abilityPoints;
-        private string faction;
+        private Faction faction;
         private int healthPoints;
         private int level;
         private string name;
@@ -30,20 +32,10 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
             set => vest = value;
         }
 
-        public string Faction
+        public Faction Faction
         {
             get => faction;
-            private set
-            {
-                if (value == "Mage")
-                {
-                    this.faction = value;   
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException(String.Empty, "Wrong faction for this class");
-                }
-            }
+            private set => faction = value;
         }
 
         public int HealthPoints
@@ -109,18 +101,19 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
         }
 
         public Necromancer()
-            : this(DEFAULT_NAME, DEFAULT_LEVEL, DEFAULT_HEALTHPOINTS)
-        {}
+            : this(DEFAULT_NAME, DEFAULT_LEVEL, DEFAULT_HEALTHPOINTS, DEFAULT_ABILITYPOINTS)
+        {
+        }
         
-        public Necromancer(string name, int level, int health = DEFAULT_HEALTHPOINTS)
+        public Necromancer(string name, int level, int health = DEFAULT_HEALTHPOINTS, int abilityPoints = DEFAULT_ABILITYPOINTS)
         {
             Name = name;
             Level = level;
             HealthPoints = health;
-            Faction = "Mage";
-            AbilityPoints = 9;
+            AbilityPoints = abilityPoints;
             DeathBane = new Sword();
             WraithShield = new LightLeatherVest();
+            Faction = Faction.Mage;
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Dynamic;
+using System.Security.Cryptography;
+using Mages_Of_Destiny.Enums;
 using Mages_Of_Destiny.Equipment.Armors;
 using Mages_Of_Destiny.Equipment.Weapons;
 
@@ -10,8 +12,9 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
         private const string DEFAULT_NAME = "Tim";
         private const int DEFAULT_LEVEL = 1;
         private const int DEFAULT_HEALTHPOINTS = 12;
+        private const int DEFAULT_ABILITYPOINTS = 9;
         private int abilityPoints;
-        private string faction;
+        private Faction faction;
         private int healthPoints;
         private int level;
         private string name;
@@ -30,20 +33,10 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
             private set => robe = value;
         }
         
-        public string Faction
+        public Faction Faction
         {
             get => faction;
-            set
-            {
-                if (value == "Mage")
-                {
-                    this.faction = value;   
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException(String.Empty, "Wrong faction for this class");
-                }
-            }
+            set => faction = value;
         }
 
         public int HealthPoints
@@ -109,16 +102,16 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
         }
 
         public Mage()
-            : this(DEFAULT_NAME, DEFAULT_LEVEL, DEFAULT_HEALTHPOINTS)
+            : this(DEFAULT_NAME, DEFAULT_LEVEL, DEFAULT_HEALTHPOINTS, DEFAULT_ABILITYPOINTS)
         {}
         
-        public Mage(string name, int level, int health = DEFAULT_HEALTHPOINTS)
+        public Mage(string name, int level, int health = DEFAULT_HEALTHPOINTS, int ability = DEFAULT_ABILITYPOINTS)
         {
             Name = name;
             Level = level;
             HealthPoints = health;
-            AbilityPoints = 9;
-            Faction = "Mage";
+            AbilityPoints = ability;
+            Faction = Faction.Mage;
             RodOfElectricity = new Staff();
             RobeOfIllumination = new ClothRobe();
         }

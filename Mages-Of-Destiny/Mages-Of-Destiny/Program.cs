@@ -1,6 +1,7 @@
 ﻿using System;
 using Mages_Of_Destiny.Characters.Melee;
 using Mages_Of_Destiny.Characters.Spellcasters;
+using Mages_Of_Destiny.Enums;
 using Mages_Of_Destiny.Equipment.Weapons;
 
 namespace Mages_Of_Destiny
@@ -10,10 +11,7 @@ namespace Mages_Of_Destiny
         static void Main(string[] args)
         {
             var health = 40;
-            var nathan = new Assassin("Nathan", 1);
-            Console.WriteLine(nathan.Name);
-            Console.WriteLine(nathan.HealthPoints);
-
+            var nathan = new Warrior("Nathan", 2);
         }
     }
 }
