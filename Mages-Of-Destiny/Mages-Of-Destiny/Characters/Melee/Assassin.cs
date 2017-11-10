@@ -18,7 +18,7 @@ namespace Mages_Of_Destiny.Characters.Melee
         {   get => abilityPoints;
             set
             {
-                if (value < 3)
+                if (value < 6)
                 {
                     throw new ArgumentOutOfRangeException(string.Empty, "Ability points set too low");
                 }

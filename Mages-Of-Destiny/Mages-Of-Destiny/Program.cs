@@ -9,8 +9,8 @@ namespace Mages_Of_Destiny
     {
         static void Main(string[] args)
         {
-            var nathan = new Assassin("Mage");
-            
+            var nathan = new Necromancer("Mage", 10, 10);
+            Console.WriteLine(nathan.HealthPoints);
         }
     }
 }

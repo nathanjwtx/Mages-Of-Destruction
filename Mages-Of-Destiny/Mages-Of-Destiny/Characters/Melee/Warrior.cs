@@ -29,6 +29,37 @@ namespace Mages_Of_Destiny.Characters.Melee
                 }
             }
         }
+        
+        public int HealthPoints
+        {
+            get => healthPoints;
+            set
+            {
+                if (value < 10)
+                {
+                    throw new ArgumentOutOfRangeException(string.Empty, "Health points set too low");
+                }
+                else
+                {
+                    this.healthPoints = value;
+                }
+            }
+        }
+        
+        public int AbilityPoints
+        {   get => abilityPoints;
+            set
+            {
+                if (value < 5)
+                {
+                    throw new ArgumentOutOfRangeException(string.Empty, "Ability points set too low");
+                }
+                else
+                {
+                    this.abilityPoints = value;
+                }
+            }
+        }
 
         public Hammer ThorsHammer
         {
@@ -57,10 +88,10 @@ namespace Mages_Of_Destiny.Characters.Melee
             return healthBoost;
         }
 
-        public Warrior(string faction)
+        public Warrior(string faction, int ability, int health)
         {
-            this.abilityPoints = 10;
-            this.healthPoints = 20;
+            this.AbilityPoints = ability;
+            this.HealthPoints = health;
             this.Faction = faction;
         }
     }

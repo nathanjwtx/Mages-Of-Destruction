@@ -18,8 +18,21 @@ namespace Mages_Of_Destiny.Characters.Melee
 
         public Chainlink BodyArmor { get => this.bodyArmor;}
 
-        public int AbilityPoints { get => this.abilityPoints; }
-
+        public int AbilityPoints
+        {   get => abilityPoints;
+            set
+            {
+                if (value < 4)
+                {
+                    throw new ArgumentOutOfRangeException(string.Empty, "Ability points set too low");
+                }
+                else
+                {
+                    this.abilityPoints = value;
+                }
+            }
+        }
+        
         public string Faction
         {
             get => faction;
@@ -32,6 +45,22 @@ namespace Mages_Of_Destiny.Characters.Melee
                 else
                 {
                     throw new ArgumentOutOfRangeException(string.Empty, "Wrong faction for this class!");
+                }
+            }
+        }
+        
+        public int HealthPoints
+        {
+            get => healthPoints;
+            set
+            {
+                if (value < 10)
+                {
+                    throw new ArgumentOutOfRangeException(string.Empty, "Health points set too low");
+                }
+                else
+                {
+                    this.healthPoints = value;
                 }
             }
         }
@@ -54,10 +83,10 @@ namespace Mages_Of_Destiny.Characters.Melee
             return damage;
         }
 
-        public Knight(string faction)
+        public Knight(string faction, int ability, int health)
         {
-            this.abilityPoints = 10;
-            this.healthPoints = 25;
+            this.AbilityPoints = ability;
+            this.HealthPoints = health;
             this.Faction = faction;
         }
 
