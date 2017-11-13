@@ -1,3 +1,5 @@
 
 Mages-Of-Destiny/\.idea/
 /Mages-Of-Destiny/.vs/Mages-Of-Destiny/v15/Server/sqlite3
+.vscode/launch.json
+.vscode/tasks.json
