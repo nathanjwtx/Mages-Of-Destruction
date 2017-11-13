@@ -13,8 +13,8 @@ namespace Mages_Of_Destiny
             var health = 40;
             var nathan = new Warrior("Nathan", 2);
             PlayersInfo.Initialize();
-            PlayersInfo.UpdateScores(6);
-            Console.WriteLine(PlayersInfo.RetrieveScores());
+            //PlayersInfo.PrintScores();
+
         }
     }
 }
