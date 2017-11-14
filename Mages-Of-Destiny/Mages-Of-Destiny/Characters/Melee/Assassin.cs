@@ -5,67 +5,47 @@ using Mages_Of_Destiny.Equipment.Weapons;
 
 namespace Mages_Of_Destiny.Characters.Melee
 {
-    public class Assassin
+    public class Assassin : Brawn
     {
         private const string DEFAULT_NAME = "Frank";
         private const int DEFAULT_LEVEL = 1;
         private const int DEFAULT_HEALTHPOINTS = 10;
         private const int DEFAULT_ABILITYPOINTS = 6;
-        private int abilityPoints;
-        private Faction faction;
-        private int healthPoints;
-        private int level;
-        private string name;
+
         private LightLeatherVest bodyArmor;
         private Sword weapon;
+        private int _abilityPoints;
+        private int _healthPoints;
 
-        public int AbilityPoints
-        {   get => abilityPoints;
-            private set
+        public override int AbilityPoints
+        {   get => _abilityPoints;
+            set
             {
                 if (value < 6)
                 {
-                    throw new ArgumentOutOfRangeException(string.Empty, "Ability points set too low");
+                    _abilityPoints = value;
                 }
                 else
                 {
-                    this.abilityPoints = value;
+                    throw new ArgumentOutOfRangeException(string.Empty, "Ability points set too low");
                 }
             }
         }
 
-        public Faction Faction
+        public override int HealthPoints
         {
-            get => faction;
-            private set => faction = value;
-        }
-
-        public int HealthPoints
-        {
-            get => healthPoints;
-            private set
+            get => _healthPoints;
+            set
             {
-                if (value > 10)
+                if (value > 140)
                 {
-                    this.healthPoints = value;   
+                    _healthPoints = value;   
                 }
                 else
                 {
                     throw new ArgumentOutOfRangeException(string.Empty, "Health points set too low");
                 }
             }
-        }
-
-        public int Level
-        {
-            get => level;
-            private set => level = value;
-        }
-
-        public string Name
-        {
-            get { return name; } 
-            private set { this.name = value; }
         }
 
         public Sword BloodDrinker
@@ -98,6 +78,11 @@ namespace Mages_Of_Destiny.Characters.Melee
             return healthBoost;
         }
 
+        public Assassin(int ability)
+            : base(ability)
+        {
+        }
+        
         public Assassin()
             : this(DEFAULT_NAME, DEFAULT_LEVEL, DEFAULT_HEALTHPOINTS, DEFAULT_ABILITYPOINTS)
         {
@@ -107,9 +92,9 @@ namespace Mages_Of_Destiny.Characters.Melee
         {
             Name = name;
             Level = level;
-            HealthPoints = health;
+            _healthPoints = health;
             Faction = Faction.Melee;
-            AbilityPoints = ability;
+            _abilityPoints = ability;
             BodyArmor = new LightLeatherVest();
             BloodDrinker  = new Sword();
         }

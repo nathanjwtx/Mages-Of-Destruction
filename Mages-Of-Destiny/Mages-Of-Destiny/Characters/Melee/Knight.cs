@@ -5,17 +5,14 @@ using Mages_Of_Destiny.Equipment.Weapons;
 
 namespace Mages_Of_Destiny.Characters.Melee
 {
-    public class Knight
+    public class Knight : Brawn
     {
         private const string DEFAULT_NAME = "Bob";
         private const int DEFAULT_LEVEL = 1;
         private const int DEFAULT_HEALTHPOINTS = 12;
         private const int DEFAULT_ABILITYPOINTS = 10;
-        private int abilityPoints;
-        private Faction faction;
-        private int healthPoints;
-        private int level;
-        private string name;
+        private int _abilityPoints;
+        private int _healthPoints;
         private Sword sword;
         private Chainlink bodyArmor;
 
@@ -31,13 +28,13 @@ namespace Mages_Of_Destiny.Characters.Melee
             private set { this.bodyArmor = value; }
         }
 
-        public int AbilityPoints
-        {   get => abilityPoints;
+        public override int AbilityPoints
+        {   get => _abilityPoints;
             set
             {
                 if (value > 4)
                 {
-                    this.abilityPoints = value;
+                    _abilityPoints = value;
                 }
                 else
                 {
@@ -46,34 +43,20 @@ namespace Mages_Of_Destiny.Characters.Melee
             }
         }
         
-        public Faction Faction
+        public override int HealthPoints
         {
-            get => faction;
-            set => faction = value;
-        }
-        
-        public int HealthPoints
-        {
-            get => healthPoints;
+            get => _healthPoints;
             set
             {
-                if (value > 10)
+                if (value > 150)
                 {
-                    this.healthPoints = value;
+                    _healthPoints = value;
                 }
                 else
                 {
                     throw new ArgumentOutOfRangeException(string.Empty, "Health points set too low");
                 }
             }
-        }
-
-        public int Level { get; set; }
-        
-        public string Name
-        {
-            get => name;
-            set => name = value;
         }
 
         public int HolyBlow()
@@ -93,7 +76,11 @@ namespace Mages_Of_Destiny.Characters.Melee
             var damage = 13;
             return damage;
         }
-
+        
+        public Knight(int ability)
+            : base(ability)
+        {}
+        
         public Knight()
             : this(DEFAULT_NAME, DEFAULT_LEVEL, DEFAULT_HEALTHPOINTS, DEFAULT_ABILITYPOINTS)
         {}
@@ -102,8 +89,8 @@ namespace Mages_Of_Destiny.Characters.Melee
         {
             Name = name;
             Level = level;
-            HealthPoints = health;
-            AbilityPoints = ability;
+            _healthPoints = health;
+            _abilityPoints = ability;
             Faction = Faction.Melee;
             DeathBringer = new Sword();
             BodyArmor = new Chainlink();

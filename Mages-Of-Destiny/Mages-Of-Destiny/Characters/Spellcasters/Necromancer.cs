@@ -6,17 +6,14 @@ using Mages_Of_Destiny.Equipment.Weapons;
 
 namespace Mages_Of_Destiny.Characters.Spellcasters
 {
-    public class Necromancer
+    public class Necromancer : Brains
     {
         private const string DEFAULT_NAME = "Bill";
         private const int DEFAULT_LEVEL = 1;
         private const int DEFAULT_HEALTHPOINTS = 12;
         private const int DEFAULT_ABILITYPOINTS = 9;
-        private int abilityPoints;
-        private Faction faction;
-        private int healthPoints;
-        private int level;
-        private string name;
+        private int _abilityPoints;
+        private int _healthPoints;
         private Sword sword;
         private LightLeatherVest vest;
 
@@ -32,20 +29,14 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
             set => vest = value;
         }
 
-        public Faction Faction
+        public override int HealthPoints
         {
-            get => faction;
-            private set => faction = value;
-        }
-
-        public int HealthPoints
-        {
-            get => healthPoints;
-            private set
+            get => _healthPoints;
+            set
             {
-                if (value > 4)
+                if (value > 110)
                 {
-                    healthPoints = value;
+                    _healthPoints = value;
                 }
                 else
                 {
@@ -54,32 +45,20 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
             }
         }
 
-        public int AbilityPoints
+        public override int AbilityPoints
         {
-            get => abilityPoints;
-            private set
+            get => _abilityPoints;
+            set
             {
                 if (value > 5)
                 {
-                    abilityPoints = value;
+                    _abilityPoints = value;
                 }
                 else
                 {
                     throw new ArgumentOutOfRangeException(String.Empty, "Ability too low");
                 }
             }
-        }
-
-        public int Level
-        {
-            get => level;
-            private set => level = value;
-        }
-
-        public string Name
-        {
-            get => name;
-            private set => name = value;
         }
 
         public int ShadowRage()
@@ -100,6 +79,10 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
             return healthBoost;
         }
 
+        public Necromancer(int ability)
+            : base(ability)
+        {}
+        
         public Necromancer()
             : this(DEFAULT_NAME, DEFAULT_LEVEL, DEFAULT_HEALTHPOINTS, DEFAULT_ABILITYPOINTS)
         {
@@ -109,8 +92,8 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
         {
             Name = name;
             Level = level;
-            HealthPoints = health;
-            AbilityPoints = abilityPoints;
+            _healthPoints = health;
+            _abilityPoints = abilityPoints;
             DeathBane = new Sword();
             WraithShield = new LightLeatherVest();
             Faction = Faction.Mage;

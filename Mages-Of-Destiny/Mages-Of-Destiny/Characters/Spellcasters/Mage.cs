@@ -7,17 +7,14 @@ using Mages_Of_Destiny.Equipment.Weapons;
 
 namespace Mages_Of_Destiny.Characters.Spellcasters
 {
-    public class Mage
+    public class Mage : Brains
     {
         private const string DEFAULT_NAME = "Tim";
         private const int DEFAULT_LEVEL = 1;
         private const int DEFAULT_HEALTHPOINTS = 12;
         private const int DEFAULT_ABILITYPOINTS = 9;
-        private int abilityPoints;
-        private Faction faction;
-        private int healthPoints;
-        private int level;
-        private string name;
+        private int _abilityPoints;
+        private int _healthPoints;
         private Staff staff;
         private ClothRobe robe;
 
@@ -32,21 +29,15 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
             get => robe;
             private set => robe = value;
         }
-        
-        public Faction Faction
-        {
-            get => faction;
-            set => faction = value;
-        }
 
-        public int HealthPoints
+        public override int HealthPoints
         {
-            get => healthPoints;
+            get => _healthPoints;
             set
             {
-                if (value > 4)
+                if (value > 100)
                 {
-                    healthPoints = value;
+                    _healthPoints = value;
                 }
                 else
                 {
@@ -55,32 +46,20 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
             }
         }
 
-        public int AbilityPoints
+        public override int AbilityPoints
         {
-            get => abilityPoints;
+            get => _abilityPoints;
             set
             {
                 if (value > 5)
                 {
-                    abilityPoints = value;
+                    _abilityPoints = value;
                 }
                 else
                 {
                     throw new ArgumentOutOfRangeException(String.Empty, "Ability too low");
                 }
             }
-        }
-
-        public int Level
-        {
-            get => level;
-            private set => level = value;
-        }
-
-        public string Name
-        {
-            get => name;
-            private set => name = value;
         }
 
         public int ArcaneWrath()
@@ -101,6 +80,10 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
             return healthBoost;
         }
 
+        public Mage(int ability)
+            : base(ability)
+        {}
+        
         public Mage()
             : this(DEFAULT_NAME, DEFAULT_LEVEL, DEFAULT_HEALTHPOINTS, DEFAULT_ABILITYPOINTS)
         {}
@@ -109,8 +92,8 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
         {
             Name = name;
             Level = level;
-            HealthPoints = health;
-            AbilityPoints = ability;
+            _healthPoints = health;
+            _abilityPoints = ability;
             Faction = Faction.Mage;
             RodOfElectricity = new Staff();
             RobeOfIllumination = new ClothRobe();
