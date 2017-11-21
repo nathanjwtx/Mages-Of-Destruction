@@ -14,6 +14,7 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
         private const int DEFAULT_ABILITYPOINTS = 9;
         private int _abilityPoints;
         private int _healthPoints;
+        private int _mana;
         private Sword sword;
         private LightLeatherVest vest;
 
@@ -79,8 +80,8 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
             return healthBoost;
         }
 
-        public Necromancer(int ability)
-            : base(ability)
+        public Necromancer(int ability, int mana)
+            : base(ability, mana)
         {}
         
         public Necromancer()

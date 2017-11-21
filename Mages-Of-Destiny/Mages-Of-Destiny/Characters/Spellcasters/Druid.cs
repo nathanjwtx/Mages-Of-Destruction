@@ -13,6 +13,7 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
         private const int DEFAULT_ABILITYPOINTS = 10;
         private int _abilityPoints;
         private int _healthPoints;
+        private int _mana;
         private Staff staff;
         private LightLeatherVest vest;
 
@@ -78,8 +79,8 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
             return healthBoost;
         }
 
-        public Druid(int ability)
-            : base(ability)
+        public Druid(int ability, int mana)
+            : base(ability, mana)
         {}
         
         public Druid()

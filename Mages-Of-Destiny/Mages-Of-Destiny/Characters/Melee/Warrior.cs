@@ -9,7 +9,7 @@ namespace Mages_Of_Destiny.Characters.Melee
     {
         private const string DEFAULT_NAME = "Will";
         private const int DEFAULT_LEVEL = 1;
-        private const int DEFAULT_HEALTHPOINTS = 12;
+        private const int DEFAULT_HEALTHPOINTS = 100;
         private const int DEFAULT_ABILITYPOINTS = 7;
         private int _abilityPoints;
         private int _healthPoints;
@@ -21,7 +21,7 @@ namespace Mages_Of_Destiny.Characters.Melee
             get => _healthPoints;
             set
             {
-                if (value > 150)
+                if (value > 50)
                 {
                     _healthPoints = value;
                 }

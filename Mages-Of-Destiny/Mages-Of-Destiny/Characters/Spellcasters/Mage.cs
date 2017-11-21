@@ -1,22 +1,34 @@
 ﻿using System;
 using System.Dynamic;
 using System.Security.Cryptography;
+using Interfaces;
+using Mages_Of_Destiny.Characters.Melee;
 using Mages_Of_Destiny.Enums;
 using Mages_Of_Destiny.Equipment.Armors;
 using Mages_Of_Destiny.Equipment.Weapons;
+using Weapons;
 
 namespace Mages_Of_Destiny.Characters.Spellcasters
 {
-    public class Mage : Brains
+    public class Mage : Brains, ISpellCaster
     {
         private const string DEFAULT_NAME = "Tim";
         private const int DEFAULT_LEVEL = 1;
         private const int DEFAULT_HEALTHPOINTS = 12;
         private const int DEFAULT_ABILITYPOINTS = 9;
+        private const int DEFAULT_MANA = 50;
         private int _abilityPoints;
         private int _healthPoints;
+        private int _mana;
         private Staff staff;
         private ClothRobe robe;
+        private Spell firstSpell;
+
+        public Spell FirstSpell
+        {
+            get => this.firstSpell;
+            set => this.firstSpell = value;
+        }
 
         public Staff RodOfElectricity
         {
@@ -80,23 +92,40 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
             return healthBoost;
         }
 
-        public Mage(int ability)
-            : base(ability)
-        {}
+        public Mage(int ability, int mana)
+            : base(ability, mana)
+        {
+            _mana = 100;
+            this.FirstSpell = new Spell();
+        }
         
         public Mage()
             : this(DEFAULT_NAME, DEFAULT_LEVEL, DEFAULT_HEALTHPOINTS, DEFAULT_ABILITYPOINTS)
         {}
         
-        public Mage(string name, int level, int health = DEFAULT_HEALTHPOINTS, int ability = DEFAULT_ABILITYPOINTS)
+        public Mage(string name, int level, int health = DEFAULT_HEALTHPOINTS, int ability = DEFAULT_ABILITYPOINTS, int mana = DEFAULT_MANA)
         {
+//            _mana = 100;
             Name = name;
             Level = level;
             _healthPoints = health;
             _abilityPoints = ability;
+            _mana = mana;
             Faction = Faction.Mage;
             RodOfElectricity = new Staff();
             RobeOfIllumination = new ClothRobe();
+        }
+
+        public int Mana
+        {
+            get => this._mana;
+            set => this._mana = value;
+        }
+
+        public void CastSpell(Warrior warrior)
+        {
+            warrior.HealthPoints = warrior.HealthPoints - this.FirstSpell.Damage;
+            this._mana = this._mana - this.FirstSpell.ManaCost;
         }
     }
 }
