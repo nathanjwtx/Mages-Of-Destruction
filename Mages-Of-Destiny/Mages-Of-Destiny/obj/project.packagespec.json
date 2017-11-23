@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "C:\\Users\\Nathan - User\\OneDrive\\Work - C Sharp\\02 Udemy - TodV OOP with C#\\Mages-Of-Destiny\\Mages-Of-Destiny\\Mages-Of-Destiny\\Mages-Of-Destiny.csproj",
+    "projectUniqueName": "C:\\Users\\Nathan - User\\OneDrive\\1 C-Sharp\\02 Udemy - TodV OOP with C#\\Mages-Of-Destiny\\Mages-Of-Destiny\\Mages-Of-Destiny\\Mages-Of-Destiny.csproj",
     "projectName": "Mages-Of-Destiny",
-    "projectPath": "C:\\Users\\Nathan - User\\OneDrive\\Work - C Sharp\\02 Udemy - TodV OOP with C#\\Mages-Of-Destiny\\Mages-Of-Destiny\\Mages-Of-Destiny\\Mages-Of-Destiny.csproj",
-    "outputPath": "C:\\Users\\Nathan - User\\OneDrive\\Work - C Sharp\\02 Udemy - TodV OOP with C#\\Mages-Of-Destiny\\Mages-Of-Destiny\\Mages-Of-Destiny\\obj\\",
+    "projectPath": "C:\\Users\\Nathan - User\\OneDrive\\1 C-Sharp\\02 Udemy - TodV OOP with C#\\Mages-Of-Destiny\\Mages-Of-Destiny\\Mages-Of-Destiny\\Mages-Of-Destiny.csproj",
+    "outputPath": "C:\\Users\\Nathan - User\\OneDrive\\1 C-Sharp\\02 Udemy - TodV OOP with C#\\Mages-Of-Destiny\\Mages-Of-Destiny\\Mages-Of-Destiny\\obj\\",
     "projectStyle": "PackageReference",
     "originalTargetFrameworks": [
       "netcoreapp2.0"

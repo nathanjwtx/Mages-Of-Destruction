@@ -31,3 +31,13 @@ C:\Users\watenatj\OneDrive\1 C-Sharp\02 Udemy - TodV OOP with C#\Mages-Of-Destin
 C:\Users\watenatj\OneDrive\1 C-Sharp\02 Udemy - TodV OOP with C#\Mages-Of-Destiny\Mages-Of-Destiny\Mages-Of-Destiny\obj\Debug\netcoreapp2.0\Mages-Of-Destiny.AssemblyInfo.cs
 C:\Users\watenatj\OneDrive\1 C-Sharp\02 Udemy - TodV OOP with C#\Mages-Of-Destiny\Mages-Of-Destiny\Mages-Of-Destiny\obj\Debug\netcoreapp2.0\Mages-Of-Destiny.dll
 C:\Users\watenatj\OneDrive\1 C-Sharp\02 Udemy - TodV OOP with C#\Mages-Of-Destiny\Mages-Of-Destiny\Mages-Of-Destiny\obj\Debug\netcoreapp2.0\Mages-Of-Destiny.pdb
+C:\Users\Nathan - User\OneDrive\1 C-Sharp\02 Udemy - TodV OOP with C#\Mages-Of-Destiny\Mages-Of-Destiny\Mages-Of-Destiny\obj\Debug\netcoreapp2.0\Mages-Of-Destiny.csproj.CoreCompileInputs.cache
+C:\Users\Nathan - User\OneDrive\1 C-Sharp\02 Udemy - TodV OOP with C#\Mages-Of-Destiny\Mages-Of-Destiny\Mages-Of-Destiny\obj\Debug\netcoreapp2.0\Mages-Of-Destiny.AssemblyInfoInputs.cache
+C:\Users\Nathan - User\OneDrive\1 C-Sharp\02 Udemy - TodV OOP with C#\Mages-Of-Destiny\Mages-Of-Destiny\Mages-Of-Destiny\obj\Debug\netcoreapp2.0\Mages-Of-Destiny.AssemblyInfo.cs
+C:\Users\Nathan - User\OneDrive\1 C-Sharp\02 Udemy - TodV OOP with C#\Mages-Of-Destiny\Mages-Of-Destiny\Mages-Of-Destiny\obj\Debug\netcoreapp2.0\Mages-Of-Destiny.dll
+C:\Users\Nathan - User\OneDrive\1 C-Sharp\02 Udemy - TodV OOP with C#\Mages-Of-Destiny\Mages-Of-Destiny\Mages-Of-Destiny\obj\Debug\netcoreapp2.0\Mages-Of-Destiny.pdb
+C:\Users\Nathan - User\OneDrive\1 C-Sharp\02 Udemy - TodV OOP with C#\Mages-Of-Destiny\Mages-Of-Destiny\Mages-Of-Destiny\bin\Debug\netcoreapp2.0\Mages-Of-Destiny.deps.json
+C:\Users\Nathan - User\OneDrive\1 C-Sharp\02 Udemy - TodV OOP with C#\Mages-Of-Destiny\Mages-Of-Destiny\Mages-Of-Destiny\bin\Debug\netcoreapp2.0\Mages-Of-Destiny.runtimeconfig.json
+C:\Users\Nathan - User\OneDrive\1 C-Sharp\02 Udemy - TodV OOP with C#\Mages-Of-Destiny\Mages-Of-Destiny\Mages-Of-Destiny\bin\Debug\netcoreapp2.0\Mages-Of-Destiny.runtimeconfig.dev.json
+C:\Users\Nathan - User\OneDrive\1 C-Sharp\02 Udemy - TodV OOP with C#\Mages-Of-Destiny\Mages-Of-Destiny\Mages-Of-Destiny\bin\Debug\netcoreapp2.0\Mages-Of-Destiny.dll
+C:\Users\Nathan - User\OneDrive\1 C-Sharp\02 Udemy - TodV OOP with C#\Mages-Of-Destiny\Mages-Of-Destiny\Mages-Of-Destiny\bin\Debug\netcoreapp2.0\Mages-Of-Destiny.pdb

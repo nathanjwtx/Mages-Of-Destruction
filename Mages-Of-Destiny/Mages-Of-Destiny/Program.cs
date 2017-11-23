@@ -11,12 +11,12 @@ namespace Mages_Of_Destiny
         static void Main(string[] args)
         {
             var health = 160;
-            var nathan = new Mage(100, 40);
+            var nathan = new Mage(100);
             var bob = new Warrior();
-            bob.HealthPoints = health;
-            Console.WriteLine(bob.HealthPoints);
-            nathan.CastSpell(bob);
-            Console.WriteLine(bob.HealthPoints);
+            nathan.Mana = 100;
+            Console.WriteLine(nathan.Mana);
+            nathan.CastSpell(bob, nathan);
+            Console.WriteLine(bob.Name);
         }
     }
 }
