@@ -15,20 +15,33 @@ namespace Mages_Of_Destiny
             var chars = new List<Character>();
 
             var Max = new Mage("Max", 2, 100, 50);
-            var Bob = new Druid();
+            var Bob = new Assassin("Bob", 2, 120, 70);
 
             chars.Add(Max);
             chars.Add(Bob);
-
-            foreach (Character c in chars)
-            {
-                if (c is Mage)
-                {
-                    var tempMage = new Mage();
-                    tempMage.CastSpell(tempMage, tempMage.ArcaneWrath());
-                }
-            }
+            Fight(chars);
             
+        }
+
+        static void Fight(List<Character> characters)
+        {
+            Random rnd1 = new Random();
+            var charTurn = rnd1.Next(0, 6);
+            
+            foreach (Character c in characters)
+            {
+                c.Attack();
+//                if (c is Mage)
+//                {
+//                    var tempMage = new Mage();
+//                    tempMage.CastSpell(c, tempMage.ArcaneWrath());
+//                }
+//                else if (c is Druid)
+//                {
+//                    var tempDruid = new Druid();
+//                    tempDruid.CastSpell(c, tempDruid.Moonfire());
+//                }
+            }
         }
     }
 }

@@ -1,8 +1,9 @@
-﻿using Mages_Of_Destiny.Enums;
+﻿using Interfaces;
+using Mages_Of_Destiny.Enums;
 
 namespace Mages_Of_Destiny.Characters
 {
-    public class Brawn : Character
+    public class Brawn : Character, IAttack, IDefend
     {
         private int _abilityPoints;
 
@@ -24,6 +25,21 @@ namespace Mages_Of_Destiny.Characters
             : base(health, level, name, faction)
         {
             
+        }
+
+        public override void Attack()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void SpecialAttack()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Defend()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

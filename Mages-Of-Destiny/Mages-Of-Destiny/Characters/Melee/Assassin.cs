@@ -11,6 +11,7 @@ namespace Mages_Of_Destiny.Characters.Melee
         private const int DEFAULT_LEVEL = 1;
         private const int DEFAULT_HEALTHPOINTS = 10;
         private const int DEFAULT_ABILITYPOINTS = 6;
+        private const string SwordName = "BloodDrinker";
 
         private LightLeatherVest bodyArmor;
         private Sword weapon;
@@ -97,6 +98,11 @@ namespace Mages_Of_Destiny.Characters.Melee
             _abilityPoints = ability;
             BodyArmor = new LightLeatherVest();
             BloodDrinker  = new Sword();
+        }
+
+        public override void Attack()
+        {
+            Console.WriteLine("{0} attacks with {1} for {2} damage!", Name, SwordName, Raze());
         }
     }
 }

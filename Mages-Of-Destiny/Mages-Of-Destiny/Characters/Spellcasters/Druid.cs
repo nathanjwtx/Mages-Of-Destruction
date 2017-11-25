@@ -96,5 +96,15 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
             RodOfLife = new Staff();
             BarkSkinLeatherVest = new LightLeatherVest();
         }
+
+        public override void Attack()
+        {
+            Moonfire();
+        }
+
+        public override void SpecialAttack()
+        {
+            Starburst();
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Dynamic;
 using System.Security.Cryptography;
+using Interfaces;
 using Mages_Of_Destiny.Enums;
 using Mages_Of_Destiny.Equipment.Armors;
 using Mages_Of_Destiny.Equipment.Weapons;
@@ -13,6 +14,8 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
         private const int DEFAULT_LEVEL = 1;
         private const int DEFAULT_HEALTHPOINTS = 12;
         private const int DEFAULT_ABILITYPOINTS = 9;
+        private const string AttackName = "ArcaneWrath";
+        
         private int _abilityPoints;
         private int _healthPoints;
         private Staff staff;
@@ -64,7 +67,7 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
 
         public int ArcaneWrath()
         {
-            var damage = 13;
+            var damage = 14;
             return damage;
         }
 
@@ -99,6 +102,17 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
             Faction = Faction.Mage;
             RodOfElectricity = new Staff();
             RobeOfIllumination = new ClothRobe();
+        }
+
+        public override void Attack()
+        {
+            ArcaneWrath();
+            Console.WriteLine("{0} attacks with {1} for {2} damage!", Name, AttackName, ArcaneWrath());
+        }
+
+        public override void SpecialAttack()
+        {
+            Firewall();
         }
     }
 }

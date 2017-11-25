@@ -5,7 +5,7 @@ using Mages_Of_Destiny.Enums;
 
 namespace Mages_Of_Destiny.Characters
 {
-    public class Brains : Character, ISpellCaster
+    public class Brains : Character, ISpellCaster, IAttack, IDefend
     {
         private int _abilityPoints;
 
@@ -32,6 +32,21 @@ namespace Mages_Of_Destiny.Characters
         {
             var msg = string.Format("{0} casts a spell with {1} damage", mage.Name, spellDamage);
             Console.WriteLine(msg);
+        }
+
+        public override void Attack()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void SpecialAttack()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Defend()
+        {
+            throw new NotImplementedException();
         }
     }
 }

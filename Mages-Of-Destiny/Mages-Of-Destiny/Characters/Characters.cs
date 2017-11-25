@@ -1,8 +1,9 @@
-﻿using Mages_Of_Destiny.Enums;
+﻿using Interfaces;
+using Mages_Of_Destiny.Enums;
 
 namespace Mages_Of_Destiny.Characters
 {
-    public class Character
+    public abstract class Character: IAttack
     {
         private int _healthPoints;
         
@@ -28,7 +29,10 @@ namespace Mages_Of_Destiny.Characters
             Name = name;
             Faction = faction;
         }
-        
-        
+
+
+        public abstract void Attack();
+
+        public abstract void SpecialAttack();
     }
 }
