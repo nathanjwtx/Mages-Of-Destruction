@@ -2,7 +2,7 @@
 
 namespace Mages_Of_Destiny.Characters
 {
-    public class Brawn : Characters
+    public class Brawn : Character
     {
         private int _abilityPoints;
 

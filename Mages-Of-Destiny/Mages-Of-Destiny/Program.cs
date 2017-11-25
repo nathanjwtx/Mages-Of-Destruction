@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using Mages_Of_Destiny.Characters;
 using Mages_Of_Destiny.Characters.Melee;
 using Mages_Of_Destiny.Characters.Spellcasters;
 using Mages_Of_Destiny.Enums;
@@ -10,13 +12,23 @@ namespace Mages_Of_Destiny
     {
         static void Main(string[] args)
         {
-            var health = 160;
-            var nathan = new Mage(100);
-            var bob = new Warrior();
-            nathan.Mana = 100;
-            Console.WriteLine(nathan.Mana);
-            nathan.CastSpell(bob, nathan);
-            Console.WriteLine(bob.Name);
+            var chars = new List<Character>();
+
+            var Max = new Mage("Max", 2, 100, 50);
+            var Bob = new Druid();
+
+            chars.Add(Max);
+            chars.Add(Bob);
+
+            foreach (Character c in chars)
+            {
+                if (c is Mage)
+                {
+                    var tempMage = new Mage();
+                    tempMage.CastSpell(tempMage, tempMage.ArcaneWrath());
+                }
+            }
+            
         }
     }
 }

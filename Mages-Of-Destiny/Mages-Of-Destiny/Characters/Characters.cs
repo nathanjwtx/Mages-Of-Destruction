@@ -2,7 +2,7 @@
 
 namespace Mages_Of_Destiny.Characters
 {
-    public class Characters
+    public class Character
     {
         private int _healthPoints;
         
@@ -18,10 +18,10 @@ namespace Mages_Of_Destiny.Characters
 
         public Faction Faction { get; set; }
 
-        public Characters()
+        public Character()
         {}
 
-        public Characters(int health, int level, string name, Faction faction)
+        public Character(int health, int level, string name, Faction faction)
         {
             _healthPoints = health;
             Level = level;

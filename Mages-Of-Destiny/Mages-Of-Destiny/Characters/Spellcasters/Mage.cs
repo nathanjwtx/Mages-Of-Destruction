@@ -1,32 +1,22 @@
 ﻿using System;
 using System.Dynamic;
 using System.Security.Cryptography;
-using Interfaces;
-using Mages_Of_Destiny.Characters.Melee;
 using Mages_Of_Destiny.Enums;
 using Mages_Of_Destiny.Equipment.Armors;
 using Mages_Of_Destiny.Equipment.Weapons;
-using Weapons;
 
 namespace Mages_Of_Destiny.Characters.Spellcasters
 {
-    public class Mage : Brains, ISpellCaster
+    public class Mage : Brains
     {
         private const string DEFAULT_NAME = "Tim";
         private const int DEFAULT_LEVEL = 1;
         private const int DEFAULT_HEALTHPOINTS = 12;
-        private const int DEFAULT_MANA = 50;
+        private const int DEFAULT_ABILITYPOINTS = 9;
+        private int _abilityPoints;
         private int _healthPoints;
-        private int _mana;
         private Staff staff;
         private ClothRobe robe;
-        private Spell firstSpell;
-
-        public Spell FirstSpell
-        {
-            get => firstSpell;
-            set => firstSpell = value;
-        }
 
         public Staff RodOfElectricity
         {
@@ -56,6 +46,22 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
             }
         }
 
+        public override int AbilityPoints
+        {
+            get => _abilityPoints;
+            set
+            {
+                if (value > 5)
+                {
+                    _abilityPoints = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException(String.Empty, "Ability too low");
+                }
+            }
+        }
+
         public int ArcaneWrath()
         {
             var damage = 13;
@@ -74,42 +80,25 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
             return healthBoost;
         }
 
-        public Mage(int mana)
-            : base(mana)
+        public Mage(int ability)
+            : base(ability)
+        {}
+
+        public Mage()
+            : this(DEFAULT_NAME, DEFAULT_LEVEL, DEFAULT_HEALTHPOINTS, DEFAULT_ABILITYPOINTS)
         {
-            _mana = 100;
-            this.FirstSpell = new Spell();
+            
         }
         
-        public Mage()
-            : this(DEFAULT_NAME, DEFAULT_LEVEL, DEFAULT_HEALTHPOINTS)
-        {}
-        
-        public Mage(string name, int level, int health = DEFAULT_HEALTHPOINTS, int mana = DEFAULT_MANA)
+        public Mage(string name, int level, int health = DEFAULT_HEALTHPOINTS, int ability = DEFAULT_ABILITYPOINTS)
         {
-//            _mana = 100;
             Name = name;
             Level = level;
             _healthPoints = health;
-            _mana = mana;
+            _abilityPoints = ability;
             Faction = Faction.Mage;
             RodOfElectricity = new Staff();
             RobeOfIllumination = new ClothRobe();
-        }
-
-//        public int Mana
-//        {
-//            get => _mana;
-//            set => _mana = value;
-//        }
-
-        public void CastSpell(Warrior warrior, Mage mage)
-        {
-            Console.WriteLine(warrior.HealthPoints);
-            warrior.HealthPoints = warrior.HealthPoints - FirstSpell.Damage;
-            _mana = _mana - this.FirstSpell.ManaCost;
-            Console.WriteLine(warrior.HealthPoints);
-            Console.WriteLine(_mana);
         }
     }
 }

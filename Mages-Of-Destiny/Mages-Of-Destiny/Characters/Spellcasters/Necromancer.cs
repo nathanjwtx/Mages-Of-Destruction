@@ -11,8 +11,9 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
         private const string DEFAULT_NAME = "Bill";
         private const int DEFAULT_LEVEL = 1;
         private const int DEFAULT_HEALTHPOINTS = 12;
+        private const int DEFAULT_ABILITYPOINTS = 9;
+        private int _abilityPoints;
         private int _healthPoints;
-        private int _mana;
         private Sword sword;
         private LightLeatherVest vest;
 
@@ -44,6 +45,22 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
             }
         }
 
+        public override int AbilityPoints
+        {
+            get => _abilityPoints;
+            set
+            {
+                if (value > 5)
+                {
+                    _abilityPoints = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException(String.Empty, "Ability too low");
+                }
+            }
+        }
+
         public int ShadowRage()
         {
             var damage = 13;
@@ -62,20 +79,21 @@ namespace Mages_Of_Destiny.Characters.Spellcasters
             return healthBoost;
         }
 
-        public Necromancer(int mana)
-            : base(mana)
+        public Necromancer(int ability)
+            : base(ability)
         {}
         
         public Necromancer()
-            : this(DEFAULT_NAME, DEFAULT_LEVEL, DEFAULT_HEALTHPOINTS)
+            : this(DEFAULT_NAME, DEFAULT_LEVEL, DEFAULT_HEALTHPOINTS, DEFAULT_ABILITYPOINTS)
         {
         }
         
-        public Necromancer(string name, int level, int health = DEFAULT_HEALTHPOINTS)
+        public Necromancer(string name, int level, int health = DEFAULT_HEALTHPOINTS, int abilityPoints = DEFAULT_ABILITYPOINTS)
         {
             Name = name;
             Level = level;
             _healthPoints = health;
+            _abilityPoints = abilityPoints;
             DeathBane = new Sword();
             WraithShield = new LightLeatherVest();
             Faction = Faction.Mage;

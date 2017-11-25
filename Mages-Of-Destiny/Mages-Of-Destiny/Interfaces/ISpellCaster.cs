@@ -11,6 +11,6 @@ namespace Interfaces
     {
         int Mana { get; set; }
 
-        void CastSpell(Warrior warrior, Mage mage);
+        void CastSpell(Character mage, int spellDamge);
     }
 }
